@@ -1,4 +1,4 @@
-module github.com/GlobalFreightSolutions/logrus-datadog-hook
+module github.com/sebastienferry/logrus-datadog-hook
 
 go 1.16
 
