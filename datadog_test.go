@@ -124,7 +124,7 @@ func TestSendShouldSendLogsToConfiguredDatadogEndpoint(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	hook.DatadogEndpoint = endpoint(server.URL)
+	hook.DatadogEndpoint = Endpoint(server.URL)
 	logger.AddHook(hook)
 	logrus.DeferExitHandler(hook.Close)
 
@@ -177,7 +177,7 @@ func TestSendShouldSendLogsToConfiguredDatadogEndpointNoBatching(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	hook.DatadogEndpoint = endpoint(server.URL)
+	hook.DatadogEndpoint = Endpoint(server.URL)
 	logger.AddHook(hook)
 	logrus.DeferExitHandler(hook.Close)
 

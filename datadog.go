@@ -13,7 +13,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type endpoint string
+type Endpoint string
 
 const (
 	// The maximum content size per request is 5MB
@@ -26,9 +26,9 @@ const (
 	maxLogCount = 1000
 
 	basePath                   = "/v1/input"
-	DatadogHostUS     endpoint = "https://http-intake.logs.datadoghq.com"
-	DatadogHostEU     endpoint = "https://http-intake.logs.datadoghq.eu"
-	DatadogHostUSGOV  endpoint = "https://http-intake.logs.ddog-gov.com"
+	DatadogHostUS     Endpoint = "https://http-intake.logs.datadoghq.com"
+	DatadogHostEU     Endpoint = "https://http-intake.logs.datadoghq.eu"
+	DatadogHostUSGOV  Endpoint = "https://http-intake.logs.ddog-gov.com"
 	apiKeyHeader               = "DD-API-KEY"
 	defaultMaxRetries          = 5
 )
@@ -50,7 +50,7 @@ type DatadogHook struct {
 	ClientBatchingEnabled bool
 	MinLevel              logrus.Level
 	MaxRetry              int
-	DatadogEndpoint       endpoint
+	DatadogEndpoint       Endpoint
 	Formatter             logrus.Formatter
 	entryC                chan logrus.Entry
 	ticker                *time.Ticker
@@ -64,7 +64,7 @@ type Options struct {
 	// The Minimum level of log to send to datadog, default is logrus.InfoLevel
 	MinimumLoggingLevel *logrus.Level
 	// The datadog endpoint to send logs to, default is DatadogHostUS
-	DatadogEndpoint *endpoint
+	DatadogEndpoint *Endpoint
 	// The Service tag to add to all logs
 	Service *string
 	// The Host tag to add to all logs
